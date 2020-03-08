@@ -1,5 +1,11 @@
-import { useForm } from "../react/src/shared/hooks/form-hook"
+const fs = require("fs"); //file system
 
-const userName ='ILAM KAR'
+const userName = "ILAM KAR";
 
-alert(userName);
+fs.writeFile("user-data.txt", "Name:" + userName, err => {
+  if (err) {
+    console.log(err);
+    return;
+  }
+  console.log("Wrote file");
+});
