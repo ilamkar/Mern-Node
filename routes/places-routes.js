@@ -21,6 +21,12 @@ router.get('/:pid', (req, res, next) => {  // register route
   const place = DUMMY_PLACES.find(p => {
     return p.id === placeId;
   });
+
+  if(!place){
+      const error = new Error('Could not find a place for the provided id');
+      error.code = 404;
+      throw error  // synchrous only one thing at a time
+  }
   res.json({place}); // => { place } => { place: place }
 });
 
@@ -29,6 +35,12 @@ router.get('/user/:uid', (req, res, next) => {  // register route
     const place = DUMMY_PLACES.find(p => {
       return p.creator === userId;
     });
+
+    if(!place){
+        const error = new Error('Could not find a place for the user id');
+        error.code = 404;
+       return next(error); // asychronous multiple thing at once
+    }
     res.json({place}); 
   });
   
