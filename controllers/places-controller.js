@@ -43,7 +43,7 @@ const getPlaceById = (req, res, next) => {
 
 const getPlacesByUserId = (req, res, next) => {
   const userId = req.params.uid;
-  const places = DUMMY_PLACES.filter(p => { // fill return a new array full of elements find anly find first elements that maches the crieteria
+  const places = DUMMY_PLACES.filter(p => { // fill return a new array full of elements find only find first elements that maches the crieteria
     return p.creator === userId;
   });
 
