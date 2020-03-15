@@ -12,4 +12,7 @@ router.get('/user/:uid',placesController.getPlaceByUserId); // register route ge
   
 router.post('',placesController.createPlace);
 
+router.patch('/:pid',placesController.upDatePlace); //only interesed in patch method
+router.delete('/:poid',placesController.deletePlace);
+
 module.exports = router;
